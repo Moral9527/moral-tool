@@ -60,8 +60,8 @@ public class JacksonUtils {
         return fromJson(json, TypeFactory.defaultInstance().constructParametricType(ArrayList.class, getJavaType(clazz)));
     }
 
-    public static <K, V> Map<K, V> map(String json, Class<K> keyClazz, Class<V> valclazz) {
-        return fromJson(json, TypeFactory.defaultInstance().constructParametricType(HashMap.class, getJavaType(keyClazz), getJavaType(valclazz)));
+    public static <K, V> Map<K, V> map(String json, Class<K> keyClazz, Class<V> valClazz) {
+        return fromJson(json, TypeFactory.defaultInstance().constructParametricType(HashMap.class, getJavaType(keyClazz), getJavaType(valClazz)));
     }
 
     public static Map<String, String> map(String json) {
