@@ -1,6 +1,15 @@
 package icu.moral.bean;
 
+import com.google.common.base.Joiner;
+import icu.moral.map.Area;
+import icu.moral.util.TimeUtils;
+
 public class ChinaIdentity {
+
+    public ChinaIdentity(){
+        number = randomIdentity();
+        fillNumber(number);
+    }
 
     public ChinaIdentity(String number){
         fillNumber(number);
@@ -42,6 +51,10 @@ public class ChinaIdentity {
         return code;
     }
 
+    public String IdentityNumber(){
+        return number;
+    }
+
     public ChinaIdentity fillNumber(String number){
         this.number = number;
         if(number != null){
@@ -54,6 +67,15 @@ public class ChinaIdentity {
 
     private boolean completeCheck(){
         return number != null && _array != null && _array.length == 18;
+    }
+
+    private String randomIdentity() {
+
+        StringBuilder builder = new StringBuilder(Joiner.on("").join(Area.getCode(), TimeUtils.birthTime(), (int)(Math.random() * 900) + 100, "$"));
+
+        builder.append(new ChinaIdentity(builder.toString()).validationCode());
+
+        return builder.toString().replace("$", "");
     }
 
 }

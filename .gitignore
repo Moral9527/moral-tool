@@ -29,3 +29,5 @@ logs
 
 target/
 .DS_Store
+
+src/main/java/icu/moral/Console.java
