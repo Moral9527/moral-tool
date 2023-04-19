@@ -1,9 +1,7 @@
 package icu.moral.alg;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 public class DigitalLogarithm {
 
